@@ -6,11 +6,13 @@
     <title>@yield('title', 'Лабораторний практикум')</title>
 </head>
 <body>
-    <nav>
-        <a href="{{ url('/') }}">Головний прикол</a>
-        <a href="{{ url('/about') }}">Про стосунок</a>
-        <a href="{{ url('/contact') }}">Контракти</a>
-    </nav>
+  <nav>
+    <a href="{{ route('site.say') }}">Головна</a>
+    <a href="{{ route('site.about') }}">Про застосунок</a>
+    <a href="{{ route('site.contact') }}">Контакти</a>
+    <a href="{{ route('entry.form') }}">Форма</a>
+    <a href="{{ route('realty.page') }}">Нерухомість</a>
+</nav>
 
     <main>
         @yield('content')
