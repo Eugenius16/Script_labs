@@ -25,17 +25,12 @@ class SiteController extends Controller
 
     // МЕТОДИ ДЛЯ ІНДИВІДУАЛЬНОГО ЗАВДАННЯ:
     public function realty()
-    {
-        $companyName = 'Агентство нерухомості "Затишок"';
-        $services = [
-            'Купівля та продаж квартир у новобудовах',
-            'Оренда житлової та комерційної нерухомості',
-            'Юридичний супровід та перевірка документів',
-            'Оцінка ринкової вартості об’єктів'
-        ];
+{
+    $companyName = 'Агентство нерухомості "Затишок"';
+    $services = RealtyService::values();
 
-        return view('site.realty', compact('companyName', 'services'));
-    }
+    return view('site.realty', compact('companyName', 'services'));
+}
 
     public function feedbackStore(FeedbackRequest $request)
     {
