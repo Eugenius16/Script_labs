@@ -7,10 +7,11 @@
     <p>Наш рієлтор зв'яжеться з вами найближчим часом за вказаними контактами:</p>
 
     <ul>
-        <li><strong>Клієнт:</strong> {{ $name }}</li>
-        <li><strong>Email:</strong> {{ $email }}</li>
-        <li><strong>Ваші побажання:</strong> {{ $message }}</li>
-    </ul>
+    <li><strong>Клієнт:</strong> {{ $name }}</li>
+    <li><strong>Email:</strong> {{ $email }}</li>
+    <li><strong>Бюджет:</strong> {{ $budget }} $</li>
+    <li><strong>Ваші побажання:</strong> {{ $message }}</li>
+</ul>
 
     <p>
         <a href="{{ route('realty.page') }}">Повернутися до сторінки нерухомості</a>

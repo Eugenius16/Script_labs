@@ -45,6 +45,13 @@
             @enderror
         </div>
 
+        <div style="margin-bottom: 10px;">
+    <label for="budget">Планований бюджет ($):</label><br>
+    <input type="number" id="budget" name="budget" value="{{ old('budget') }}" style="width: 300px;">
+    @error('budget')
+        <p style="color: red; margin: 2px 0;">{{ $message }}</p>
+    @enderror
+</div>
         <button type="submit">Відправити заявку</button>
     </form>
 @endsection

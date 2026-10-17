@@ -16,6 +16,7 @@ class FeedbackRequest extends FormRequest
         return [
             'name'    => ['required', 'string', 'max:255'],
             'email'   => ['required', 'email'],
+            'budget'  => ['required', 'numeric', 'min:1000'], // НОВЕ ЧИСЛОВЕ ПРАВИЛО
             'message' => ['required', 'string', 'min:5'],
         ];
     }
@@ -26,7 +27,10 @@ class FeedbackRequest extends FormRequest
             'name.required'    => 'Вкажіть ваше ім\'я.',
             'email.required'   => 'Вкажіть електронну пошту.',
             'email.email'      => 'Введіть коректний email.',
-            'message.required' => 'Напишіть ваше повідомлення або побажання щодо нерухомості.',
+            'budget.required'  => 'Вкажіть планований бюджет.',
+            'budget.numeric'   => 'Бюджет має бути числом.',
+            'budget.min'       => 'Мінімальний бюджет становить 1000 $.',
+            'message.required' => 'Напишіть ваші побажання щодо нерухомості.',
             'message.min'      => 'Повідомлення має містити хоча б 5 символів.',
         ];
     }
