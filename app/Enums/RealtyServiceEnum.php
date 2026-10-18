@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum RealtyService: string
+enum RealtyServiceEnum: string
 {
     case BUY_SELL = 'Купівля та продаж квартир у новобудовах';
     case RENT = 'Оренда житлової та комерційної нерухомості';

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\EntryRequest;
 use App\Http\Requests\FeedbackRequest;
+use App\Enums\RealtyServiceEnum;
 
 class SiteController extends Controller
 {
@@ -24,10 +25,10 @@ class SiteController extends Controller
     }
 
     // МЕТОДИ ДЛЯ ІНДИВІДУАЛЬНОГО ЗАВДАННЯ:
-    public function realty()
+   public function realty()
 {
     $companyName = 'Агентство нерухомості "Затишок"';
-    $services = RealtyService::values();
+    $services = RealtyServiceEnum::values();
 
     return view('site.realty', compact('companyName', 'services'));
 }
