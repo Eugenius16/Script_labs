@@ -12,6 +12,8 @@
     <a href="{{ route('site.contact') }}">Контакти</a>
     <a href="{{ route('entry.form') }}">Форма</a>
     <a href="{{ route('realty.page') }}">Нерухомість</a>
+    <a href="{{ route('country.index') }}">Країни</a>
+    <a href="{{ route('apartment.index') }}">Каталог квартир</a>
 </nav>
 
     <main>
