@@ -14,6 +14,7 @@
     <a href="{{ route('realty.page') }}">Нерухомість</a>
     <a href="{{ route('country.index') }}">Країни</a>
     <a href="{{ route('apartment.index') }}">Каталог квартир</a>
+    <a href="{{ route('stats.pages') }}">Статистика</a>
 </nav>
 
     <main>
