@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\ApartmentController;
+use App\Http\Middleware\TrackVisit;
+use App\Http\Controllers\StatsController;
 
 
 Route::get('/', function () {
@@ -19,3 +21,6 @@ Route::get('/realty', [SiteController::class, 'realty'])->name('realty.page');
 Route::post('/realty/feedback', [SiteController::class, 'feedbackStore'])->name('realty.feedback');
 Route::resource('country', CountryController::class);
 Route::resource('apartment', ApartmentController::class);
+Route::get('/stats', [StatsController::class, 'pages'])->name('stats.pages');
+Route::get('/stats/detail', [StatsController::class, 'detail'])->name('stats.detail');
+Route::get('/stats/search', [StatsController::class, 'searchStats'])->name('stats.search');
