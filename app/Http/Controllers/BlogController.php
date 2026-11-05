@@ -17,7 +17,7 @@ class BlogController extends Controller
         return view('blog.index', compact('blogs'));
     }
 
-    //Рі-31 Пащенко Євгеній
+
     public function admin()
     {
         $blogs = Blog::with('category')

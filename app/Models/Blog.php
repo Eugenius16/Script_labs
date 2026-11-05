@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-//Пащенко Є. Рі-31
+
 class Blog extends Model
 {
     protected $table = 'blog';

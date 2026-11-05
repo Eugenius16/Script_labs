@@ -24,4 +24,3 @@ class BlogRequest extends FormRequest
         ];
     }
 }
-//Єв той що геній і той що Пащенко
