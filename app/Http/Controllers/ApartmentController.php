@@ -10,18 +10,21 @@ class ApartmentController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Apartment::query();
+        $currentLocale = in_array($request->query('lang'), ['uk', 'en']) 
+            ? $request->query('lang') 
+            : 'uk';
 
-        // Фільтрація за містом (?city=...)
+        $query = Apartment::with('translations');
+
         if ($request->filled('city')) {
             $query->where('city', 'like', '%' . $request->city . '%');
         }
 
         $apartments = $query->orderByDesc('id')
             ->paginate(4)
-            ->withQueryString(); // Зберігає фільтр у посиланнях пагінації
+            ->withQueryString();
 
-        return view('apartment.index', compact('apartments'));
+        return view('apartment.index', compact('apartments', 'currentLocale'));
     }
 
     public function create()

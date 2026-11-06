@@ -15,6 +15,7 @@
     <a href="{{ route('country.index') }}">Країни</a>
     <a href="{{ route('apartment.index') }}">Каталог квартир</a>
     <a href="{{ route('stats.pages') }}">Статистика</a>
+    <a href="{{ route('blog.index') }}">Блог</a>
 </nav>
 
     <main>
@@ -22,7 +23,8 @@
     </main>
 
     <footer>
-        &copy; {{ date('Y') }} КПІ ім. Ігоря Сікорського Лаба1
-    </footer>
+    <hr>
+    &copy; {{ date('Y') }} КПІ ім. Ігоря Сікорського | Студент: Пащенко Є.О., група РІ-31
+</footer>
 </body>
 </html>

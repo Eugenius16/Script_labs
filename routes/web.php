@@ -1,12 +1,12 @@
 <?php
-
+//Пащенко Є. РІ-31
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\ApartmentController;
 use App\Http\Middleware\TrackVisit;
 use App\Http\Controllers\StatsController;
-
+use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,3 +24,5 @@ Route::resource('apartment', ApartmentController::class);
 Route::get('/stats', [StatsController::class, 'pages'])->name('stats.pages');
 Route::get('/stats/detail', [StatsController::class, 'detail'])->name('stats.detail');
 Route::get('/stats/search', [StatsController::class, 'searchStats'])->name('stats.search');
+Route::get('/blog/admin', [BlogController::class, 'admin'])->name('blog.admin');
+Route::resource('blog', BlogController::class);
