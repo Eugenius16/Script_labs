@@ -19,6 +19,8 @@ class ApartmentRequest extends FormRequest
             'rooms'       => ['required', 'integer', 'min:1', 'max:10'],
             'price'       => ['required', 'numeric', 'min:1000'],
             'description' => ['nullable', 'string'],
+            'features'    => ['sometimes', 'array'],
+            'features.*'  => ['integer', 'distinct', 'exists:features,id'],
         ];
     }
 

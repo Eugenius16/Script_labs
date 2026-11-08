@@ -11,16 +11,15 @@ class BlogRequest extends FormRequest
         return true;
     }
 
-    public function rules(): array
+   public function rules(): array
     {
         return [
             'title'       => ['required', 'string', 'max:200'],
             'description' => ['nullable', 'string', 'max:500'],
             'text'        => ['nullable', 'string'],
-            'category_id' => [
-                'nullable',
-                'exists:category,category_id',
-            ],
+            'category_id' => ['nullable', 'exists:category,category_id'],
+            'filters'     => ['sometimes', 'array'],
+            'filters.*'   => ['integer', 'distinct', 'exists:filter,filter_id'],
         ];
     }
 }
