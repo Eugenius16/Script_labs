@@ -13,4 +13,14 @@
         <a href="{{ route('apartment.edit', $apartment) }}">Редагувати</a> | 
         <a href="{{ route('apartment.index') }}">Повернутися до каталогу</a>
     </p>
+    <div style="margin: 15px 0;">
+        <strong>Особливості та зручності:</strong><br>
+        @forelse ($apartment->features as $feature)
+            <span style="background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 4px; font-size: 13px; margin-right: 6px; display: inline-block; margin-top: 5px;">
+                ✔ {{ $feature->name }}
+            </span>
+        @empty
+            <span style="color: #888;">Зручності не вказані.</span>
+        @endforelse
+    </div>
 @endsection
