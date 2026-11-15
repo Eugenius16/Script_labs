@@ -26,3 +26,23 @@
     <label for="description">Опис:</label><br>
     <textarea id="description" name="description" rows="3" style="width: 320px;">{{ old('description', $apartment->description ?? '') }}</textarea>
 </div>
+<div style="margin-bottom: 15px;">
+    <label for="features"><strong>Зручності та особливості (Select2):</strong></label><br>
+    <select id="features" name="features[]" multiple="multiple" style="width: 320px;">
+        @foreach ($features as $id => $name)
+            <option value="{{ $id }}" @selected(in_array($id, old('features', $selectedFeatures ?? [])))>
+                {{ $name }}
+            </option>
+        @endforeach
+    </select>
+    @error('features') <p style="color: red; margin: 2px 0;">{{ $message }}</p> @enderror
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#features').select2({
+            placeholder: "Оберіть зручності",
+            allowClear: true
+        });
+    });
+</script>

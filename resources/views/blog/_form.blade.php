@@ -19,6 +19,19 @@
     @error('category_id') <p style="color: red; margin: 4px 0;">{{ $message }}</p> @enderror
 </div>
 
+<!-- ПОЛЕ МІТОК (Select2) -->
+<div style="margin-bottom: 12px;">
+    <label for="filters"><strong>Мітки (виберіть кілька)</strong></label><br>
+    <select id="filters" name="filters[]" multiple="multiple" style="width: 100%; max-width: 450px;">
+        @foreach ($filters as $id => $name)
+            <option value="{{ $id }}" @selected(in_array($id, old('filters', $selected ?? [])))>
+                {{ $name }}
+            </option>
+        @endforeach
+    </select>
+    @error('filters') <p style="color: red; margin: 4px 0;">{{ $message }}</p> @enderror
+</div>
+
 <div style="margin-bottom: 12px;">
     <label for="description"><strong>Короткий опис</strong></label><br>
     <textarea id="description" name="description" rows="3" style="width: 100%; max-width: 450px;">{{ old('description', $blog->description ?? '') }}</textarea>

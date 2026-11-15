@@ -1,5 +1,5 @@
 <?php
-//Пащенко Є. РІ-31
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CountryController;
@@ -24,5 +24,8 @@ Route::resource('apartment', ApartmentController::class);
 Route::get('/stats', [StatsController::class, 'pages'])->name('stats.pages');
 Route::get('/stats/detail', [StatsController::class, 'detail'])->name('stats.detail');
 Route::get('/stats/search', [StatsController::class, 'searchStats'])->name('stats.search');
+Route::get('/blog/admin', [BlogController::class, 'admin'])->name('blog.admin');
+Route::get('/blog/{blog}/tags', [BlogController::class, 'tags'])->name('blog.tags');
+Route::post('/blog/{blog}/tags', [BlogController::class, 'tagsStore'])->name('blog.tags.store');
 Route::get('/blog/admin', [BlogController::class, 'admin'])->name('blog.admin');
 Route::resource('blog', BlogController::class);
