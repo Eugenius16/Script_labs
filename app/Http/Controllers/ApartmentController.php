@@ -7,27 +7,30 @@ use App\Http\Requests\ApartmentRequest;
 use Illuminate\Http\Request;
 use App\Models\Feature;
 use Illuminate\Support\Arr;
+use App\Queries\ApartmentFilter;
 
 class ApartmentController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, ApartmentFilter $filter)
     {
         $currentLocale = in_array($request->query('lang'), ['uk', 'en']) 
             ? $request->query('lang') 
             : 'uk';
 
-        $query = Apartment::with('translations')
-            ->withCount('features'); // Додаткове завдання: кількість зручностей
+        $input = $request->validate([
+            'title'      => ['nullable', 'string', 'max:255'],
+            'city'       => ['nullable', 'string', 'max:100'],
+            'feature_id' => ['nullable', 'integer', 'exists:features,id'],
+            'sort'       => ['nullable', 'string', 'max:30'],
+        ]);
 
-        if ($request->filled('city')) {
-            $query->where('city', 'like', '%' . $request->city . '%');
-        }
-
-        $apartments = $query->orderByDesc('id')
+        $apartments = $filter->apply($input)
             ->paginate(4)
             ->withQueryString();
 
-        return view('apartment.index', compact('apartments', 'currentLocale'));
+        $features = Feature::orderBy('name')->pluck('name', 'id');
+
+        return view('apartment.index', compact('apartments', 'currentLocale', 'features'));
     }
 
     public function create()
